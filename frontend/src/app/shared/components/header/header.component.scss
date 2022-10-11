@@ -1,0 +1,10 @@
+@import "../../../styles/variables.scss";
+
+.header-container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  height: $header-height;
+  width: 100%;
+  background-color: rgb(56, 17, 116);
+}
