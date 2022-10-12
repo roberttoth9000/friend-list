@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { IFriendViewModel } from '../../models/IFriendViewModel';
@@ -10,5 +11,5 @@ export class FriendService {
   friendsObservable$: Observable<IFriendViewModel[]> =
     this.friendsSubject.asObservable();
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 }
