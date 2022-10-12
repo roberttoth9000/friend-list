@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { IFriendViewModel } from '../../models/IFriendViewModel';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FriendService {
+  private friendsSubject = new BehaviorSubject<IFriendViewModel[]>([]);
+  friendsObservable$: Observable<IFriendViewModel[]> =
+    this.friendsSubject.asObservable();
 
-  constructor() { }
+  constructor() {}
 }
