@@ -9,10 +9,9 @@ import { FriendService } from 'src/app/core/services/friend-service/friend.servi
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent implements OnInit {
-  friendData!: IFriendViewModel;
   friendSubscription!: Subscription;
 
-  friends: IFriendViewModel[] = [];
+  friendsList: IFriendViewModel[] = [];
 
   constructor(private friendService: FriendService) {}
 
@@ -20,7 +19,7 @@ export class LandingPageComponent implements OnInit {
     this.friendService.getAllFriends();
     this.friendSubscription = this.friendService.friendsObservable$.subscribe(
       (observableResponse: IFriendViewModel[]) => {
-        this.friends = observableResponse;
+        this.friendsList = observableResponse;
       }
     );
   }
