@@ -1,1 +1,15 @@
 <p>edit-page works!</p>
+<p>edit-page works!</p>
+<p>edit-page works!</p>
+<p>edit-page works!</p>
+<p>edit-page works!</p>
+<p>--</p>
+<p>--</p>
+
+<form [formGroup]="addNewFriendForm" (ngSubmit)="onSubmit()">
+  <label for="friend-name">name: </label>
+  <input type="text" id="friend-name" formControlName="name" />
+  <button type="submit" [disabled]="!addNewFriendForm.valid">
+    Register Friend
+  </button>
+</form>
