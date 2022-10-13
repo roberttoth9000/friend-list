@@ -1,2 +1,9 @@
-<p>landing-page works!</p>
-<div class="main-container"></div>
+<div class="main-container">
+  <div class="title">
+    <h3>My Friends</h3>
+  </div>
+  <div class="friends-container">
+    <app-friend *ngFor="let friend of friendsList" [friendData]="friend">
+    </app-friend>
+  </div>
+</div>
