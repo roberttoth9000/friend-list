@@ -16,7 +16,11 @@
   <label for="favFoodName">favourite food* </label>
   <input type="text" id="favFoodName" formControlName="favFood" />
   <label for="relStat">relationship status* </label>
-  <input type="string" id="relStat" formControlName="relationshipStatus" />
+  <select id="relStat" name="relStat" formControlName="relationshipStatus">
+    <option value="0">single</option>
+    <option value="1">in relationship</option>
+    <option value="2">married</option>
+  </select>
   <button type="submit" [disabled]="!addNewFriendForm.valid">
     Register Friend
   </button>
