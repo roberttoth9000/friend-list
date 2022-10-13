@@ -1,0 +1,43 @@
+<div class="add-new-friend-container">
+  <button (click)="toggle()" id="bt">
+    {{ addFriend }}
+  </button>
+
+  <div class="form-container" *ngIf="show">
+    <form [formGroup]="addNewFriendForm" (ngSubmit)="onSubmit()">
+      <label for="friend-name"
+        >name* <input type="text" id="friend-name" formControlName="name"
+      /></label>
+
+      <label for="email"
+        >email* <input type="text" id="email" formControlName="email"
+      /></label>
+
+      <label for="comment"
+        >comment <input type="text" id="comment" formControlName="comment"
+      /></label>
+
+      <label for="favFoodName"
+        >favourite food*
+        <input type="text" id="favFoodName" formControlName="favFood"
+      /></label>
+
+      <label for="relStat"
+        >relationship status*
+        <select
+          id="relStat"
+          name="relStat"
+          formControlName="relationshipStatus"
+        >
+          <option value="0">single</option>
+          <option value="1">in relationship</option>
+          <option value="2">married</option>
+        </select></label
+      >
+
+      <button type="submit" [disabled]="!addNewFriendForm.valid">
+        Register Friend
+      </button>
+    </form>
+  </div>
+</div>

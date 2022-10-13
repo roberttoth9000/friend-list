@@ -9,6 +9,13 @@ const routes: Routes = [
         (mod) => mod.LandingPageModule
       ),
   },
+  {
+    path: 'edit',
+    loadChildren: () =>
+      import('./pages/edit-page/edit-page.module').then(
+        (mod) => mod.EditPageModule
+      ),
+  },
 ];
 
 @NgModule({
