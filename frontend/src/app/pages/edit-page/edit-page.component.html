@@ -7,8 +7,16 @@
 <p>--</p>
 
 <form [formGroup]="addNewFriendForm" (ngSubmit)="onSubmit()">
-  <label for="friend-name">name: </label>
+  <label for="friend-name">name* </label>
   <input type="text" id="friend-name" formControlName="name" />
+  <label for="email">email* </label>
+  <input type="text" id="email" formControlName="email" />
+  <label for="comment">comment </label>
+  <input type="text" id="comment" formControlName="comment" />
+  <label for="favFoodName">favourite food* </label>
+  <input type="text" id="favFoodName" formControlName="favFood" />
+  <label for="relStat">relationship status* </label>
+  <input type="string" id="relStat" formControlName="relationshipStatus" />
   <button type="submit" [disabled]="!addNewFriendForm.valid">
     Register Friend
   </button>
