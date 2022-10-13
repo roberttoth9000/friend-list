@@ -8,6 +8,6 @@ import { FriendComponent } from './components/friend/friend.component';
   declarations: [HeaderComponent, FriendComponent],
   imports: [CommonModule, RouterModule],
   providers: [],
-  exports: [HeaderComponent],
+  exports: [HeaderComponent, FriendComponent],
 })
 export class SharedModule {}
