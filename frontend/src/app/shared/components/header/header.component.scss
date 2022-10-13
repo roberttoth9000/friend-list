@@ -2,9 +2,19 @@
 
 .header-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   height: $header-height;
   width: 100%;
   background-color: $header-color;
+
+  a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    margin: 0px 8px 0 8px;
+  }
 }

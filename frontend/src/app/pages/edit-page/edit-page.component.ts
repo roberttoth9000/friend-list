@@ -19,6 +19,16 @@ export class EditPageComponent implements OnInit {
     relationshipStatus: new FormControl('', Validators.required),
   });
 
+  show: boolean = false;
+  addFriend: string = 'Add new friend';
+
+  toggle() {
+    this.show = !this.show;
+
+    if (this.show) this.addFriend = 'Hide';
+    else this.addFriend = 'Add new friend';
+  }
+
   onSubmit() {
     const newFriendForm: INewFriendForm = this.addNewFriendForm.value;
     if (this.addNewFriendForm.valid) {
@@ -31,7 +41,7 @@ export class EditPageComponent implements OnInit {
         },
         relationshipStatus: Number(newFriendForm.relationshipStatus),
       };
-
+      console.log(newFriendRequest);
       this.friendService.addNewFriend(newFriendRequest);
     }
   }
