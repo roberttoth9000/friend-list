@@ -33,6 +33,10 @@ export class EditPageComponent implements OnInit {
     else this.addFriend = 'Add new friend';
   }
 
+  addNewFoodForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+  });
+
   foodSubscription!: Subscription;
 
   onSubmit() {
