@@ -48,4 +48,8 @@
       </form>
     </div>
   </div>
+  <div class="edit-delete-friends">
+    <app-friend *ngFor="let friend of friendsList" [friendData]="friend">
+    </app-friend>
+  </div>
 </div>

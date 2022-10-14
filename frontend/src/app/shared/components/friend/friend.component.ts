@@ -7,6 +7,6 @@ import { IFriendViewModel } from 'src/app/core/models/IFriendViewModel';
   styleUrls: ['./friend.component.scss'],
 })
 export class FriendComponent {
-  @Input()
-  friendData!: IFriendViewModel;
+  @Input() friendData!: IFriendViewModel;
+  @Input() editDeleteButtonShow: boolean = true;
 }

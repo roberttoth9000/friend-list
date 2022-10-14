@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { observable, Subscription } from 'rxjs';
 import { IFood } from 'src/app/core/models/IFood';
 import { IFriendDataApi } from 'src/app/core/models/IFriendDataApi';
+import { IFriendViewModel } from 'src/app/core/models/IFriendViewModel';
 import { INewFriendDataApi } from 'src/app/core/models/INewFriendDataApi';
 import { INewFriendForm } from 'src/app/core/models/INewFriendForm';
 import { FoodService } from 'src/app/core/services/food-service/food.service';
@@ -14,6 +15,8 @@ import { FriendService } from 'src/app/core/services/friend-service/friend.servi
   styleUrls: ['./edit-page.component.scss'],
 })
 export class EditPageComponent implements OnInit {
+  editDeleteButtonShow: boolean = true;
+
   addNewFriendForm = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -38,6 +41,9 @@ export class EditPageComponent implements OnInit {
   });
 
   foodSubscription!: Subscription;
+  friendSubscription!: Subscription;
+
+  friendsList: IFriendViewModel[] = [];
 
   onSubmit() {
     const newFriendForm = this.addNewFriendForm.value;
@@ -63,6 +69,12 @@ export class EditPageComponent implements OnInit {
     this.foodSubscription = this.foodService.foodsObservable$.subscribe(
       (observableResponse: IFood[]) => {
         this.foodList = observableResponse;
+      }
+    );
+    this.friendService.getAllFriends();
+    this.friendSubscription = this.friendService.friendsObservable$.subscribe(
+      (observableResponse: IFriendViewModel[]) => {
+        this.friendsList = observableResponse;
       }
     );
   }

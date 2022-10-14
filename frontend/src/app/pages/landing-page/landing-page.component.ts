@@ -10,6 +10,7 @@ import { FriendService } from 'src/app/core/services/friend-service/friend.servi
 })
 export class LandingPageComponent implements OnInit {
   friendSubscription!: Subscription;
+  editDeleteButtonShow: boolean = false;
 
   friendsList: IFriendViewModel[] = [
     // {
@@ -41,6 +42,7 @@ export class LandingPageComponent implements OnInit {
   constructor(private friendService: FriendService) {}
 
   ngOnInit(): void {
+    this.editDeleteButtonShow = false;
     this.friendService.getAllFriends();
     this.friendSubscription = this.friendService.friendsObservable$.subscribe(
       (observableResponse: IFriendViewModel[]) => {
