@@ -36,15 +36,13 @@ export class EditPageComponent implements OnInit {
   foodList: IFood[] = [];
 
   onSubmit() {
-    const newFriendForm: INewFriendForm = this.addNewFriendForm.value;
+    const newFriendForm: any = this.addNewFriendForm.value;
     if (this.addNewFriendForm.valid) {
       const newFriendRequest: INewFriendDataApi = {
         name: newFriendForm.name,
         email: newFriendForm.email,
         comment: newFriendForm.comment,
-        favFood: {
-          name: newFriendForm.favFood,
-        },
+        favFood: newFriendForm.favFood,
         relationshipStatus: Number(newFriendForm.relationshipStatus),
       };
       console.log(newFriendRequest);

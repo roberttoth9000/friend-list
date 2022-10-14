@@ -19,8 +19,15 @@
 
       <label for="favFoodName"
         >favourite food*
-        <input type="text" id="favFoodName" formControlName="favFood"
-      /></label>
+        <!-- <input type="text" id="favFoodName" formControlName="favFood" -->
+        <select formControlName="favFood">
+          <option value="">Select</option>
+          <option *ngFor="let food of foodList" [ngValue]="food">
+            {{ food.name }}
+          </option>
+        </select>
+        /></label
+      >
 
       <label for="relStat"
         >relationship status*
