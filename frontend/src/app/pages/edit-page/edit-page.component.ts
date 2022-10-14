@@ -21,6 +21,7 @@ export class EditPageComponent implements OnInit {
     favFood: new FormControl('', Validators.required),
     relationshipStatus: new FormControl('', Validators.required),
   });
+  foodList: IFood[] = [];
 
   show: boolean = false;
   addFriend: string = 'Add new friend';
@@ -33,10 +34,9 @@ export class EditPageComponent implements OnInit {
   }
 
   foodSubscription!: Subscription;
-  foodList: IFood[] = [];
 
   onSubmit() {
-    const newFriendForm: any = this.addNewFriendForm.value;
+    const newFriendForm = this.addNewFriendForm.value;
     if (this.addNewFriendForm.valid) {
       const newFriendRequest: INewFriendDataApi = {
         name: newFriendForm.name,
@@ -45,7 +45,7 @@ export class EditPageComponent implements OnInit {
         favFood: newFriendForm.favFood,
         relationshipStatus: Number(newFriendForm.relationshipStatus),
       };
-      console.log(newFriendRequest);
+      // console.log(newFriendRequest);
       this.friendService.addNewFriend(newFriendRequest);
     }
   }
