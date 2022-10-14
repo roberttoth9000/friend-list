@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { observable, Subscription } from 'rxjs';
+import { IFood } from 'src/app/core/models/IFood';
 import { IFriendDataApi } from 'src/app/core/models/IFriendDataApi';
 import { INewFriendDataApi } from 'src/app/core/models/INewFriendDataApi';
 import { INewFriendForm } from 'src/app/core/models/INewFriendForm';
+import { FoodService } from 'src/app/core/services/food-service/food.service';
 import { FriendService } from 'src/app/core/services/friend-service/friend.service';
 
 @Component({
@@ -29,6 +32,9 @@ export class EditPageComponent implements OnInit {
     else this.addFriend = 'Add new friend';
   }
 
+  foodSubscription!: Subscription;
+  foodList: IFood[] = [];
+
   onSubmit() {
     const newFriendForm: INewFriendForm = this.addNewFriendForm.value;
     if (this.addNewFriendForm.valid) {
@@ -45,7 +51,17 @@ export class EditPageComponent implements OnInit {
       this.friendService.addNewFriend(newFriendRequest);
     }
   }
-  constructor(private friendService: FriendService) {}
+  constructor(
+    private friendService: FriendService,
+    private foodService: FoodService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.foodService.getAllFood();
+    this.foodSubscription = this.foodService.foodsObservable$.subscribe(
+      (observableResponse: IFood[]) => {
+        this.foodList = observableResponse;
+      }
+    );
+  }
 }
