@@ -1,28 +1,27 @@
 @import "../../styles/variables.scss";
-.main-container {
+
+.add-new-food-form {
   margin-top: calc($header-height + 32px);
   display: flex;
   justify-content: center;
-  .add-new-food-form {
-    input,
-    select {
-      border-radius: 4px;
-    }
-    input[type="text"]:focus {
-      background-color: $brighter;
-    }
+  input,
+  select {
+    border-radius: 4px;
+  }
+  input[type="text"]:focus {
+    background-color: $brighter;
+  }
 
-    button {
-      margin-top: 16px;
-      background-color: $header-color;
-      border: none;
-      color: white;
-      padding: 4px 8px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      border-radius: 8px;
-    }
+  button {
+    margin-top: 16px;
+    background-color: $header-color;
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
   }
 }
