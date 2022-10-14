@@ -27,7 +27,7 @@ export class FriendService {
               id: friendData.id,
               name: friendData.name,
               email: friendData.email,
-              comment: friendData.email,
+              comment: friendData.comment,
               favFoodname: friendData.favFood.name,
               relationshipStatus: friendData.relationshipStatus,
             };
