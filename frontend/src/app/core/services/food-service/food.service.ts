@@ -20,4 +20,8 @@ export class FoodService {
         this.foodsSubject.next(foods);
       });
   }
+
+  addFood(food: string): void {
+    this.http.post(`${environment.baseUrl}/Food`, food).subscribe();
+  }
 }
