@@ -1,13 +1,21 @@
-<div id="friend-card">
-  <div class="line first-line">
-    <div class="name">name: {{ friendData.name }}</div>
-    <div class="relationship-status">
-      relationship status: {{ friendData.relationshipStatus }}
+<div class="main-container">
+  <div id="friend-card">
+    <div class="line first-line">
+      <div class="name">name: {{ friendData.name }}</div>
+      <div class="relationship-status">
+        relationship status: {{ friendData.relationshipStatus }}
+      </div>
     </div>
+    <div class="line second-line">
+      <div class="email">e-mail: {{ friendData.email }}</div>
+      <div class="fav-food">favourite food: {{ friendData.favFoodname }}</div>
+    </div>
+    <div class="line third-line">{{ friendData.comment }}</div>
   </div>
-  <div class="line second-line">
-    <div class="email">e-mail: {{ friendData.email }}</div>
-    <div class="fav-food">favourite food: {{ friendData.favFoodname }}</div>
+  <div class="buttons" *ngIf="editDeleteButtonShow">
+    <button class="update-button">update</button>
+    <button class="delete-button" (click)="deleteFriend(friendData.id)">
+      delete
+    </button>
   </div>
-  <div class="line third-line">{{ friendData.comment }}</div>
 </div>

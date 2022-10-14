@@ -1,0 +1,27 @@
+@import "../../styles/variables.scss";
+
+.add-new-food-form {
+  margin-top: calc($header-height + 32px);
+  display: flex;
+  justify-content: center;
+  input,
+  select {
+    border-radius: 4px;
+  }
+  input[type="text"]:focus {
+    background-color: $brighter;
+  }
+
+  button {
+    margin-top: 16px;
+    background-color: $header-color;
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+}

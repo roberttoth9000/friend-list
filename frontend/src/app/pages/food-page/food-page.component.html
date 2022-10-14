@@ -1,0 +1,8 @@
+<div class="add-new-food-form">
+  <form [formGroup]="addNewFoodForm" (ngSubmit)="onSubmit()">
+    <label for="name"
+      >new food name <input type="text" id="name" formControlName="name"
+    /></label>
+    <button type="submit" [disabled]="!addNewFoodForm.valid">add</button>
+  </form>
+</div>

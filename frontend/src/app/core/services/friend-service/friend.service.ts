@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, map, catchError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IFriendViewModel } from '../../models/IFriendViewModel';
 import { IFriendDataApi } from '../../models/IFriendDataApi';
@@ -27,7 +27,7 @@ export class FriendService {
               id: friendData.id,
               name: friendData.name,
               email: friendData.email,
-              comment: friendData.email,
+              comment: friendData.comment,
               favFoodname: friendData.favFood.name,
               relationshipStatus: friendData.relationshipStatus,
             };
@@ -40,7 +40,18 @@ export class FriendService {
   }
 
   addNewFriend(newFriend: INewFriendDataApi): void {
-    this.http.post(`${environment.baseUrl}/Friend`, newFriend);
-    console.log('siker');
+    this.http
+      .post(`${environment.baseUrl}/Friend`, newFriend, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      })
+      .subscribe();
+  }
+
+  deleteFriendById(id: number): void {
+    this.http
+      .delete(`${environment.baseUrl}/Friend/${id}`, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      })
+      .subscribe();
   }
 }

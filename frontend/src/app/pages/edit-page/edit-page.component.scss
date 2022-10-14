@@ -1,38 +1,38 @@
 @import "../../styles/variables.scss";
-
-.add-new-friend-container {
-  button {
-    margin-top: 16px;
-    background-color: $header-color;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 8px;
-  }
-
-  margin-top: $header-height;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  form {
+.main-container {
+  .add-new-friend-container {
+    margin-top: $header-height;
     display: flex;
     flex-direction: column;
     align-items: center;
-    input[type="text"]:focus {
-      background-color: $brighter;
-    }
-    input,
-    select {
-      border-radius: 4px;
-    }
-    label {
+    justify-content: center;
+    button {
       margin-top: 16px;
+      background-color: $header-color;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 8px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      input[type="text"]:focus {
+        background-color: $brighter;
+      }
+      input,
+      select {
+        border-radius: 4px;
+      }
+      label {
+        margin-top: 16px;
+      }
     }
   }
 }

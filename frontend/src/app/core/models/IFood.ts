@@ -1,4 +1,4 @@
 export interface IFood {
-  id?: number;
+  id: number;
   name: string;
 }

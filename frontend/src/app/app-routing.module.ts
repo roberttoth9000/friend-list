@@ -16,6 +16,13 @@ const routes: Routes = [
         (mod) => mod.EditPageModule
       ),
   },
+  {
+    path: 'food',
+    loadChildren: () =>
+      import('./pages/food-page/food-page.module').then(
+        (mod) => mod.FoodPageModule
+      ),
+  },
 ];
 
 @NgModule({
