@@ -46,4 +46,12 @@ export class FriendService {
       })
       .subscribe();
   }
+
+  deleteFriendById(id: number): void {
+    this.http
+      .delete(`${environment.baseUrl}/Friend/${id}`, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      })
+      .subscribe();
+  }
 }
