@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { IFriendDataApi } from 'src/app/core/models/IFriendDataApi';
 import { IFriendViewModel } from 'src/app/core/models/IFriendViewModel';
 import { FriendService } from 'src/app/core/services/friend-service/friend.service';
 
@@ -15,5 +17,9 @@ export class FriendComponent {
 
   deleteFriend(id: number): void {
     this.friendService.deleteFriendById(id);
+  }
+
+  getFriendId(id: number): void {
+    this.friendService.getFriendById(id);
   }
 }

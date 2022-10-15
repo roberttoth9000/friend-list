@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map, catchError } from 'rxjs';
+import { BehaviorSubject, Observable, map, catchError, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IFriendViewModel } from '../../models/IFriendViewModel';
 import { IFriendDataApi } from '../../models/IFriendDataApi';
@@ -14,6 +14,10 @@ export class FriendService {
   private friendsSubject = new BehaviorSubject<IFriendViewModel[]>([]);
   friendsObservable$: Observable<IFriendViewModel[]> =
     this.friendsSubject.asObservable();
+
+  private oneFriendSubject = new Subject<IFriendDataApi>();
+  oneFriendsObservable$: Observable<IFriendDataApi> =
+    this.oneFriendSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -36,6 +40,14 @@ export class FriendService {
       )
       .subscribe((friends: IFriendViewModel[]) => {
         this.friendsSubject.next(friends);
+      });
+  }
+
+  getFriendById(id: number): void {
+    this.http
+      .get<IFriendDataApi>(`${environment.baseUrl}/Friend/${id}`)
+      .subscribe((friend: IFriendDataApi) => {
+        this.oneFriendSubject.next(friend);
       });
   }
 
