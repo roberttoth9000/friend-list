@@ -1,16 +1,42 @@
 <div class="main-container">
   <div id="friend-card">
     <div class="line first-line">
-      <div class="name">name: {{ friendData.name }}</div>
-      <div class="relationship-status">
-        relationship status: {{ friendData.relationshipStatus }}
+      <div class="name">
+        <p>name: {{ friendData.name }}</p>
+      </div>
+      <div
+        class="relationship-status"
+        *ngIf="friendData.relationshipStatus === RelationshipStatusEnum.SINGLE"
+      >
+        <p>relationship status: single</p>
+      </div>
+      <div
+        class="relationship-status"
+        *ngIf="
+          friendData.relationshipStatus ===
+          RelationshipStatusEnum.IN_RELATIONSHIP
+        "
+      >
+        <p>relationship status: in relationship</p>
+      </div>
+      <div
+        class="relationship-status"
+        *ngIf="friendData.relationshipStatus === RelationshipStatusEnum.MARRIED"
+      >
+        <p>relationship status: married</p>
       </div>
     </div>
     <div class="line second-line">
-      <div class="email">e-mail: {{ friendData.email }}</div>
-      <div class="fav-food">favourite food: {{ friendData.favFoodname }}</div>
+      <div class="email">
+        <p>e-mail: {{ friendData.email }}</p>
+      </div>
+      <div class="fav-food">
+        <p>favourite food: {{ friendData.favFoodname }}</p>
+      </div>
     </div>
-    <div class="line third-line">{{ friendData.comment }}</div>
+    <div class="line third-line">
+      <h5>{{ friendData.comment }}</h5>
+    </div>
   </div>
   <div class="buttons" *ngIf="editDeleteButtonShow">
     <button

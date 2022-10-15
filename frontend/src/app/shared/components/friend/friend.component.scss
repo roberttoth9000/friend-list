@@ -3,6 +3,16 @@
   display: flex;
   align-items: center;
 
+  p,
+  h5 {
+    color: white;
+  }
+
+  h5 {
+    border-top-color: white;
+    border-top-width: 1px;
+  }
+
   button {
     height: 20px;
     width: 50px;
