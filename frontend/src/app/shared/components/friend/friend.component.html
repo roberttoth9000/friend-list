@@ -13,7 +13,13 @@
     <div class="line third-line">{{ friendData.comment }}</div>
   </div>
   <div class="buttons" *ngIf="editDeleteButtonShow">
-    <button class="update-button">update</button>
+    <button
+      class="update-button"
+      routerLink="/update"
+      (click)="getFriendId(friendData.id)"
+    >
+      edit
+    </button>
     <button class="delete-button" (click)="deleteFriend(friendData.id)">
       delete
     </button>

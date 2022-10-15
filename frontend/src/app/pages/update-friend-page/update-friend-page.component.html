@@ -1,0 +1,47 @@
+<p>update-friend-page works!</p>
+<p>update-friend-page works!</p>
+<p>update-friend-page works!</p>
+<p>update-friend-page works!</p>
+<p>update-friend-page works!</p>
+<p>update-friend-page works!</p>
+<p>update-friend-page works!</p>
+
+<div class="form-container">
+  <form [formGroup]="updateFriendForm" (ngSubmit)="updateFriend()">
+    <label for="friend-name"
+      >name* <input type="text" id="friend-name" formControlName="name"
+    /></label>
+
+    <label for="email"
+      >email* <input type="text" id="email" formControlName="email"
+    /></label>
+
+    <label for="comment"
+      >comment <input type="text" id="comment" formControlName="comment"
+    /></label>
+
+    <label for="favFoodName"
+      >favourite food*
+      <!-- <input type="text" id="favFoodName" formControlName="favFood" -->
+      <select formControlName="favFood">
+        <option value="">Select</option>
+        <option *ngFor="let food of foodList" [ngValue]="food">
+          {{ food.name }}
+        </option>
+      </select>
+    </label>
+
+    <label for="relStat"
+      >relationship status*
+      <select id="relStat" name="relStat" formControlName="relationshipStatus">
+        <option value="0">single</option>
+        <option value="1">in relationship</option>
+        <option value="2">married</option>
+      </select></label
+    >
+
+    <button type="submit" [disabled]="!updateFriendForm.valid">
+      update friend
+    </button>
+  </form>
+</div>

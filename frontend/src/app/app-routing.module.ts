@@ -23,6 +23,13 @@ const routes: Routes = [
         (mod) => mod.FoodPageModule
       ),
   },
+  {
+    path: 'update',
+    loadChildren: () =>
+      import('./pages/update-friend-page/update-friend-page.module').then(
+        (mod) => mod.UpdateFriendPageModule
+      ),
+  },
 ];
 
 @NgModule({
