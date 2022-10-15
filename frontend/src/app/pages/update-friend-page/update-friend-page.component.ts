@@ -57,6 +57,7 @@ export class UpdateFriendPageComponent implements OnInit {
             name: this.friend.name,
             email: this.friend.email,
             comment: this.friend.comment,
+            favFood: this.friend.favFood.name,
             relationshipStatus: this.friend.relationshipStatus,
           });
         }

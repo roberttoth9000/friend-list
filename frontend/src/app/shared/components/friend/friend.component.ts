@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { RelationshipStatus } from 'src/app/core/models/enums/relationshipStatusType';
 import { IFriendDataApi } from 'src/app/core/models/IFriendDataApi';
 import { IFriendViewModel } from 'src/app/core/models/IFriendViewModel';
 import { FriendService } from 'src/app/core/services/friend-service/friend.service';
@@ -12,6 +13,7 @@ import { FriendService } from 'src/app/core/services/friend-service/friend.servi
 export class FriendComponent {
   @Input() friendData!: IFriendViewModel;
   @Input() editDeleteButtonShow: boolean = true;
+  RelationshipStatusEnum = RelationshipStatus;
 
   constructor(private friendService: FriendService) {}
 

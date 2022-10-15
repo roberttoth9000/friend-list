@@ -1,0 +1,17 @@
+@import "../../styles/variables.scss";
+
+.form-container {
+  margin-top: calc($header-height + 32px);
+  width: 100%;
+
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    label {
+      margin: 8px;
+    }
+  }
+}
