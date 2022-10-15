@@ -18,10 +18,10 @@ export class UpdateFriendPageComponent implements OnInit {
   foodSubscription!: Subscription;
 
   updateFriendForm = new FormGroup({
-    id: new FormControl('', Validators.required),
+    id: new FormControl('', Validators.minLength(4)),
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    comment: new FormControl(''),
+    comment: new FormControl('', Validators.maxLength(30)),
     favFood: new FormControl('', Validators.required),
     relationshipStatus: new FormControl('', Validators.required),
   });
