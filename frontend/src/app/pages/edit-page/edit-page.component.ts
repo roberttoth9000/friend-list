@@ -18,9 +18,9 @@ export class EditPageComponent implements OnInit {
   editDeleteButtonShow: boolean = true;
 
   addNewFriendForm = new FormGroup({
-    name: new FormControl('', Validators.required),
+    name: new FormControl('', Validators.minLength(4)),
     email: new FormControl('', [Validators.required, Validators.email]),
-    comment: new FormControl(''),
+    comment: new FormControl('', Validators.maxLength(30)),
     favFood: new FormControl('', Validators.required),
     relationshipStatus: new FormControl('', Validators.required),
   });
