@@ -4,7 +4,6 @@ import { BehaviorSubject, Observable, map, catchError, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IFriendViewModel } from '../../models/IFriendViewModel';
 import { IFriendDataApi } from '../../models/IFriendDataApi';
-import { INewFriendForm } from '../../models/INewFriendForm';
 import { INewFriendDataApi } from '../../models/INewFriendDataApi';
 
 @Injectable({
@@ -62,6 +61,14 @@ export class FriendService {
   deleteFriendById(id: number): void {
     this.http
       .delete(`${environment.baseUrl}/Friend/${id}`, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      })
+      .subscribe();
+  }
+
+  updateFriend(updateFriend: IFriendDataApi): void {
+    this.http
+      .put(`${environment.baseUrl}/Friend`, updateFriend, {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
       })
       .subscribe();
